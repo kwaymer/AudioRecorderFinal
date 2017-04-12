@@ -6,12 +6,17 @@
     android:background="@android:color/holo_orange_dark"
     tools:context="com.example.kwaymer.audiorecorder.MainActivity">
 
+    <android.support.v4.view.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_height="match_parent"
+        android:layout_width="match_parent"
+        ></android.support.v4.view.ViewPager>
+
 
     <ImageView
         android:layout_width="250dp"
         android:layout_height="250dp"
         android:layout_marginTop="38dp"
-        android:src="@drawable/kwaymer"
         android:id="@+id/logo"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
@@ -76,4 +81,5 @@
         android:text="Credits"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true" />
+
 </RelativeLayout>

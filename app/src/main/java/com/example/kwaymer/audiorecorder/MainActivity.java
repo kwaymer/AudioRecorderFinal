@@ -5,6 +5,7 @@ import android.media.Image;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Environment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -12,16 +13,21 @@ import android.widget.Button;
 import android.widget.Toast;
 
 
+import com.example.kwaymer.audiorecorder.dialog.CustomDialog;
+import com.example.kwaymer.audiorecorder.fragment.FragmentAdapter;
+
 import java.io.IOException;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button files;
-    private Button credits;
+    private Button dialog;
     private Button beats;
     private Button play, stop, record;
     private MediaRecorder myAudioRecorder;
     private String outputFile;
+    ViewPager viewPager;
+    FragmentAdapter adapter;
 
     public void OnClickButtonListener(){
         files = (Button)findViewById(R.id.files);
@@ -47,11 +53,14 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        viewPager = (ViewPager)findViewById(R.id.view_pager);
+        adapter = new FragmentAdapter(this);
+        viewPager.setAdapter(adapter);
+        dialog = (Button) findViewById(R.id.credits);
         OnClickButtonListener();
         play = (Button) findViewById(R.id.play);
         stop = (Button) findViewById(R.id.stop);
@@ -114,6 +123,24 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
+        dialog.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v){
+                customDialog();
+            }
+        });
+
+    }
+
+    private void customDialog(){
+        CustomDialog dialog = new CustomDialog(this, new CustomDialog.ICustomDialogEventListener(){
+            @Override
+            public void onClickListener(){
+
+            }
+
+        });
+        dialog.show();
     }
 
     }
