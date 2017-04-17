@@ -9,7 +9,6 @@ import android.support.annotation.NonNull;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 
-import android.support.v7.app.AppCompatActivity;
 
 
 import com.example.kwaymer.audiorecorder.R;
